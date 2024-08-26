@@ -8,6 +8,7 @@ marshmallow = "*"
 flask-sqlalchemy = "*"
 mysqlclient = "*"
 flask-migrate = "*"
+flask = "*"
 
 [dev-packages]
 
