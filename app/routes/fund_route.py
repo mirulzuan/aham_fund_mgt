@@ -58,11 +58,11 @@ def update_fund(uuid):
     except ValidationError as e:
         return jsonify(e.messages), 400
     
-    fund.name = fund_data['name']
-    fund.fund_house = fund_data['fund_house']
-    fund.description = fund_data['description']
-    fund.nav = fund_data['nav']
-    fund.performance_percentage = fund_data['performance_percentage']
+    fund.name = fund_data.name
+    fund.fund_house = fund_data.fund_house
+    fund.description = fund_data.description
+    fund.nav = fund_data.nav
+    fund.performance_percentage = fund_data.performance_percentage
     
     db.session.commit()
 
