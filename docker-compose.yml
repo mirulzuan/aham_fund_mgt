@@ -25,7 +25,6 @@ services:
     environment:
       FLASK_APP: main.py
       FLASK_ENV: development
-      SQLITE_DATABASE_URL: sqlite:///fund_mgt_development.db
       MYSQL_DATABASE_URL: mysql+pymysql://user:password@db:3306/fund_mgt_development
     volumes:
       - .:/aham
