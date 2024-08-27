@@ -31,6 +31,11 @@ docker-compose exec db mysql -u user -p -e "USE fund_mgt_development; SELECT * F
 password: password
 ```
 
+# Specs
+```
+pipenv run pytest
+```
+
 # References to each tasks
 ### Task 1
 - [models/fund.py](https://github.com/mirulzuan/aham_fund_mgt/blob/main/app/models/fund.py)
