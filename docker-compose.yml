@@ -25,7 +25,7 @@ services:
     environment:
       FLASK_APP: main.py
       FLASK_ENV: development
-      DATABASE_URL: mysql+pymysql://user:password@db:3306/fund_mgt_development
+      MYSQL_DATABASE_URL: mysql+pymysql://user:password@db:3306/fund_mgt_development
     volumes:
       - .:/aham
 

@@ -13,6 +13,9 @@ cryptography = "*"
 flask = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-flask = "*"
+mock = "*"
 
 [requires]
 python_version = "3.8"

@@ -18,12 +18,16 @@ class Fund(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     deleted_at = db.Column(db.DateTime)
 
-    def __init__(self, name, fund_house, nav, performance_percentage, description=None):
+    def __init__(self, name, fund_house, nav, performance_percentage, uuid=None, description=None, created_at=None, updated_at=None, deleted_at=None):
+        self.uuid = uuid
         self.name = name
         self.fund_house = fund_house
         self.nav = nav
         self.performance_percentage = performance_percentage
         self.description = description
+        self.created_at = created_at
+        self.updated_at = updated_at
+        self.deleted_at = deleted_at
     
     def __repr__(self):
         return f"<Fund {self.name}>"
