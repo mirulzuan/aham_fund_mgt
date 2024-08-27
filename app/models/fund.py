@@ -1,10 +1,14 @@
 from app.utils.db import db
 from datetime import datetime
+from sqlalchemy.dialects.mysql import CHAR
+
+import uuid
 
 class Fund(db.Model):
     __tablename__ = 'funds'
 
     id = db.Column(db.Integer, primary_key=True)
+    uuid = db.Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = db.Column(db.String(255), nullable=False)
     fund_house = db.Column(db.String(255), nullable=False)
     nav = db.Column(db.Float, nullable=False)
@@ -27,11 +31,13 @@ class Fund(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'uuid': self.uuid,
             'name': self.name,
             'fund_house': self.fund_house,
             'nav': self.nav,
             'performance_percentage': self.performance_percentage,
             'description': self.description,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'deleted_at': self.deleted_at
         }

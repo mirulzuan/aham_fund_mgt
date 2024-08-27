@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from marshmallow import ValidationError
+from datetime import datetime
 from app.models.fund import Fund
 from app.schemas.fund_schema import FundSchema
 from app.utils.db import db
@@ -33,9 +34,9 @@ def create_fund():
     return jsonify(schema.dump(fund)), 201
 
 # GET FUND BY ID
-@fund_bp.route('/funds/<int:id>', methods=['GET'])
-def get_fund(id):
-    fund = Fund.query.get(id)
+@fund_bp.route('/funds/<string:uuid>', methods=['GET'])
+def get_fund(uuid):
+    fund = Fund.query.filter_by(uuid=uuid).first()
     
     if fund is None:
         return jsonify({"error": "Fund not found"}), 404
@@ -45,9 +46,9 @@ def get_fund(id):
     return jsonify(schema.dump(fund))
 
 # UPDATE FUND
-@fund_bp.route('/funds/<int:id>', methods=['PUT'])
-def update_fund(id):
-    fund = Fund.query.get(id)
+@fund_bp.route('/funds/<string:uuid>', methods=['PUT'])
+def update_fund(uuid):
+    fund = Fund.query.filter_by(uuid=uuid).first()
     
     if fund is None:
         return jsonify({"error": "Fund not found"}), 404
@@ -69,15 +70,15 @@ def update_fund(id):
 
     return jsonify(schema.dump(fund))
 
-# DESTROY FUND
-@fund_bp.route('/funds/<int:id>', methods=['DELETE'])
-def delete_fund(id):
-    fund = Fund.query.get(id)
+# SOFT DELETE FUND
+@fund_bp.route('/funds/<string:uuid>', methods=['DELETE'])
+def delete_fund(uuid):
+    fund = Fund.query.filter_by(uuid=uuid, deleted_at=None).first()
     
     if fund is None:
         return jsonify({"error": "Fund not found"}), 404
     
-    db.session.delete(fund)
+    fund.deleted_at = datetime.now()
     db.session.commit()
 
     return jsonify({}), 200

@@ -3,6 +3,7 @@ from app.models.fund import Fund
 
 class FundSchema(Schema):
     id = fields.Int(dump_only=True)
+    uuid = fields.Str(dump_only=True)
     name = fields.Str(required=True)
     fund_house = fields.Str(required=True) # FM name -- ToDo: Create a separate schema for FM association
     description = fields.Str(allow_none=True)
@@ -10,6 +11,7 @@ class FundSchema(Schema):
     performance_percentage = fields.Float(required=True, validate=validate.Range(max=100))
     created_at = fields.DateTime(dump_only=True)
     updated_at = fields.DateTime(dump_only=True)
+    deleted_at = fields.DateTime(dump_only=True)
 
     @post_load
     def make_fund(self, data, **kwargs):
