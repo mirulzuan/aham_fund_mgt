@@ -7,8 +7,8 @@ import uuid
 class Fund(db.Model):
     __tablename__ = 'funds'
 
-    id = db.Column(db.Integer, primary_key=True)
-    uuid = db.Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    uuid = db.Column(CHAR(36), default=lambda: str(uuid.uuid4()))
     name = db.Column(db.String(255), nullable=False)
     fund_house = db.Column(db.String(255), nullable=False)
     nav = db.Column(db.Float, nullable=False)

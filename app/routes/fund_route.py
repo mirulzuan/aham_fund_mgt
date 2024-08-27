@@ -25,9 +25,7 @@ def create_fund():
         fund = schema.load(request.json)
     except ValidationError as e:
         return jsonify(e.messages), 400
-    
-    fund = Fund(**fund)
-    
+        
     db.session.add(fund)
     db.session.commit()
 
