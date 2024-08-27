@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from app.utils.db import db
+from app.utils.db import db, migrate
 from app.routes.fund_route import fund_bp
 from config import DevelopmentConfig, TestConfig
 
@@ -22,6 +22,7 @@ def create_app():
     
     # Initialize DB
     db.init_app(app)
+    migrate.init_app(app, db)
     
     # Register Routes
     app.register_blueprint(fund_bp)
