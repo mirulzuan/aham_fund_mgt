@@ -5,7 +5,7 @@ from app.models.fund import Fund
 
 @pytest.fixture
 def app():
-    app = create_app('testing')
+    app = create_app(env='testing')
     with app.app_context():
         yield app
 
