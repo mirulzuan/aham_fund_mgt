@@ -15,11 +15,6 @@ docker-compose up
 
 # Funds APIs
 ### You may test these APIs by importing this [postman_link](https://api.postman.com/collections/9329394-484881ce-4fc9-4128-90e4-7da02cb819b5?access_key=PMAT-01J6AG3KSMBMZZ6JCFY4PSTMCF) to your collection
-- Fetch funds: GET localhost:5001/funds
-- Fetch single fund: GET localhost:5001/funds/:uuid
-- Create fund: POST localhost:5001/funds
-- Update fund: PUT localhost:5001/funds/:uuid
-- Delete: DELETE localhost:5001/funds/:uuid
 
 | Resource            | API                                |
 | :----------------   | :----------------------------------|
