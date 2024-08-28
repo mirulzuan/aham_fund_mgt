@@ -1,5 +1,6 @@
 # aham_fund_mgt
-Backend Developer Practical: Fund Management System
+Backend Developer Practical: A simple Fund Management System written with Flask
+
 
 How to start?
 ```python
