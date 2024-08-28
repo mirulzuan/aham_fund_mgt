@@ -19,7 +19,15 @@ docker-compose up
 - Fetch single fund: GET localhost:5001/funds/:uuid
 - Create fund: POST localhost:5001/funds
 - Update fund: PUT localhost:5001/funds/:uuid
-- Delete: PUT localhost:5001/funds/:uuid
+- Delete: DELETE localhost:5001/funds/:uuid
+
+| Resource            | API                                |
+| :----------------   | :----------------------------------|
+| Fetch funds         | GET localhost:5001/funds           |
+| Fetch single fund   | GET localhost:5001/funds/:uuid     |
+| Create fund         | POST localhost:5001/funds          |
+| Update fund         | PUT localhost:5001/funds/:uuid     |
+| Delete fund         | DELETE localhost:5001/funds/:uuid  |
 
 # Data migration to MySQL
 ```
